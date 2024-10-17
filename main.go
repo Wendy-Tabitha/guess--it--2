@@ -12,6 +12,7 @@ import (
 func main() {
 	numbers := []float64{}
 
+	inputSize := 2
 
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -22,6 +23,10 @@ func main() {
 			return
 		}
 		numbers = append(numbers, numbs)
+
+		if len(numbers) > inputSize {
+			numbers = numbers[1:]
+		}
 
 		if len(numbers) > 1 {
 			lower, upper := statistics.Range(numbers)
